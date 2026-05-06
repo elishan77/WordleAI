@@ -1,0 +1,2 @@
+# WordleAI
+CS175
