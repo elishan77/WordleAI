@@ -13,7 +13,8 @@ class Game:
     won : bool = False
 
     def __post_init__(self):
-        self.set_random_answer()
+        if not self.answer:
+            self.set_random_answer()
 
     def set_answer(self, answer):
         if not validate_length(answer):
