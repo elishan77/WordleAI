@@ -5,3 +5,8 @@ CS175
 cd backend
 
 fastapi dev main.py
+
+## Running the Frontend
+cd frontend
+
+npm run dev
