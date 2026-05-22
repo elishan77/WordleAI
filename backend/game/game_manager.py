@@ -47,6 +47,10 @@ class Game:
         if not validate_allowed(guess, VALID_GUESSES):
             raise ValueError("Guess is not in the list of valid words")
         
+        # prevent duplicate guesses
+        if guess in [g["guess"] for g in self.guesses]:
+            raise ValueError("This guess has already been submitted")
+        
         feedback = generate_feedback(guess, self.answer)
         
         # store guess and feedback for history
