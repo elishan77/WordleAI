@@ -9,4 +9,6 @@ fastapi dev main.py
 ## Running the Frontend
 cd frontend
 
+npm install
+
 npm run dev
