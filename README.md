@@ -1,6 +1,14 @@
 # WordleAI
 CS175
 
+## Dependencies
+Python
+
+Node.js
+
+## Installation
+pip install "fastapi[standard]"
+
 ## Running the Backend
 cd backend
 
