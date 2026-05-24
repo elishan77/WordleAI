@@ -1,12 +1,14 @@
 from backend.game.game_manager import Game
 from backend.game.word_loader import ANSWER_WORDS
+from backend.game.solver import Solver
 
-def evaluate(ai_function): # change ai_function with jedi's ai function
+def evaluate():
+    solver = Solver()
     results = []
     for word in ANSWER_WORDS:
         game = Game(answer=word)
         while not game.game_over:
-            game.submit_guess(ai_function(game.guesses))
+            game.submit_guess(solver.next_guess(game.guesses))
         results.append(len(game.guesses) if game.won else 7)  # 7 = lose
 
     solved = []
