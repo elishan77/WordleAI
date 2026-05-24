@@ -46,3 +46,9 @@ class Solver:
             raise ValueError("Could not pick a guess")
         
         return best_word
+
+    def next_guess(self, guesses: list) -> str:
+        self.reset()
+        for g in guesses:
+            self.filter_candidates(g["guess"], g["feedback"])
+        return self.pick_best_guess()
