@@ -2,6 +2,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from backend.game.game_manager import Game
 from pydantic import BaseModel
+from backend.game.solver import Solver
 
 app = FastAPI(title="WordleAI_API", description="API for playing WordleAI", version="1.0.0")
 
@@ -15,6 +16,7 @@ app.add_middleware(
 
 # initialize a single game
 game = Game()
+solver = Solver()
 
 # ----------------------------------
 # Root
@@ -43,7 +45,6 @@ def submit_guess(guess_request: GuessRequest):
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
     
-
 @app.get("/state", tags=["Game"])
 def get_game_state():
     return {
@@ -65,3 +66,30 @@ def reset_game():
 # ----------------------------------
 # AI
 # ----------------------------------
+@app.post("/ai/guess", tags=["AI"])
+def ai_guess():
+    if game.game_over:
+        raise HTTPException(status_code=400, detail="Game is already over")
+    guess = solver.next_guess(game.guesses)
+    feedback = game.submit_guess(guess)
+    return {
+        "guess": guess,
+        "feedback": feedback,
+        "remaining_guesses": game.remaining_guesses(),
+        "game_over": game.game_over,
+        "won": game.won
+    }
+
+@app.post("/ai/play", tags=["AI"])
+def ai_play():
+    game.reset()
+    solver.reset()
+    while not game.game_over:
+        guess = solver.next_guess(game.guesses)
+        game.submit_guess(guess)
+    return {
+        "answer": game.answer,
+        "guesses": game.guesses,
+        "won": game.won,
+        "num_guesses": len(game.guesses)
+    }
