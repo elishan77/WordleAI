@@ -1,11 +1,17 @@
-import GuessInput from "./components/GuessInput";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Selection } from "./pages/Selection";
+import { AutoPlay } from "./pages/AutoPlay";
+import { Assist } from "./pages/Assist";
 
 function App() {
   return (
-    <div className="App">
-      <h1>WordleAI</h1>
-      <GuessInput />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Selection />} />
+        <Route path="/autoplay" element={<AutoPlay />} />
+        <Route path="/assist" element={<Assist />} />
+      </Routes>
+    </Router>
   );
 }
 

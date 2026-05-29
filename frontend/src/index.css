@@ -9,13 +9,78 @@ body {
   margin: 0;
 }
 
-h1 {
+.page {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: #fafafa;
+}
+
+.header {
   font-size: 32px;
-  font-family: 'Bitter', serif;
   font-weight: 700;
-  font-style: normal;
-  padding: 20px 0;
-  border-bottom: 1px solid #ccc;
-  margin: 0 0 30px 0;
-  color: #333;
+  font-family: 'Bitter', serif;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  font-family: 'Libre Franklin', sans-serif;
+  margin-bottom: 60px;
+}
+
+.mode-description {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: 'Libre Franklin', sans-serif;
+  margin-bottom: 48px;
+  max-width: 400px;
+}
+
+.mode-button {
+  background-color: #ffffff00;
+
+  color: rgb(0, 0, 0);
+
+  font-size: 24px;
+  font-weight: 600;
+
+  padding: 12px 26px;
+
+  border-radius: 10px;
+  border: 2px solid #828384;
+
+  cursor: pointer;
+}
+
+.mode-button:hover {
+  background-color: #f5f5f5;
+}
+
+.game-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  
+  background-color: #ffffff00;
+
+  color: rgb(0, 0, 0);
+
+  font-size: 16px;
+  font-weight: 600;
+
+  padding: 12px 16px;
+
+  border-radius: 10px;
+  border: 2px solid #828384;
+
+  cursor: pointer;
+}
+
+.game-button:hover {
+  background-color: #f5f5f5;
 }
