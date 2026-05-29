@@ -84,3 +84,87 @@ body {
 .game-button:hover {
   background-color: #f5f5f5;
 }
+
+.tile_empty {
+  background-color: #ffffff00;
+  color: rgba(255, 255, 255, 0);
+  border: 2px solid #828384;
+
+  width: 32px;
+  height: 32px;
+
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+
+  padding: 10px 10px
+}
+
+.tile_green {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #6ca965;
+  color: rgb(255, 255, 255);
+  border: 2px solid #6ca965;
+
+  width: 32px;
+  height: 32px;
+
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+
+  padding: 10px 10px
+}
+
+.tile_yellow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #c8b653;
+  color: rgb(255, 255, 255);
+  border: 2px solid #c8b653;
+
+  width: 32px;
+  height: 32px;
+
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+
+  padding: 10px 10px
+}
+
+.tile_gray {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #787c7f;
+  color: rgb(255, 255, 255);
+  border: 2px solid #787c7f;
+
+  width: 32px;
+  height: 32px;
+
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+
+  padding: 10px 10px
+}
+
+.word-row {
+  display: flex;
+  gap: 6px;
+}
+
+.game-board {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 100px;
+}
