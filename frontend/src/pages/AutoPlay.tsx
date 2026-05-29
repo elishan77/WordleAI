@@ -1,8 +1,18 @@
+import { useNavigate } from "react-router";
+import { FaShuffle } from "react-icons/fa6";
+
 export function AutoPlay() {
+  let navigate = useNavigate();
   return (
-    <div>
-      <h1>WordleAI</h1>
-      <button onClick={() => window.location.href = "/"}>New Game</button>
+    <div className="page">
+      <h1 className="header">WordleAI</h1>
+      <button 
+        className="game-button"
+        onClick={() => navigate("/")}
+      >
+        <FaShuffle size={20}/>
+        NEW GAME
+      </button>
     </div>
   );
 }
