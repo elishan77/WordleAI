@@ -10,9 +10,9 @@ Node.js
 pip install "fastapi[standard]"
 
 ## Running the Backend
-cd backend
+from project root
 
-fastapi dev main.py
+uvicorn backend.main:app --host 0.0.0.0 --port 8000
 
 ## Running the Frontend
 cd frontend
