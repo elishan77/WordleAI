@@ -2,7 +2,7 @@ import { Word } from "../components/Word";
 import type { Status } from "../components/Word";
 
 export type Guess = {
-  word: string;
+  guess: string;
   feedback: Status[];
 };
 
@@ -16,7 +16,7 @@ export function GameBoard({ guesses }: GameBoardProps) {
       {Array.from({ length: 6 }).map((_, index) => (
         <Word
           key={index}
-          word={guesses[index]?.word || ""}
+          word={guesses[index]?.guess || ""}
           feedback={guesses[index]?.feedback || []}
         />
       ))}

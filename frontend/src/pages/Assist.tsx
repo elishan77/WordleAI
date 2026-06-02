@@ -30,7 +30,7 @@ export function Assist() {
     if (gameOver || loading) return;
     setLoading(true);
     const data = await aiGuess();
-    setGuesses((prev) => [...prev, { word: data.guess, feedback: data.feedback }]);
+    setGuesses((prev) => [...prev, { guess: data.guess, feedback: data.feedback }]);
     setGameOver(data.game_over);
     setLoading(false);
   }
