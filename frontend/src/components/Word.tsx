@@ -13,7 +13,7 @@ export function Word({ word, feedback }: WordRowProps) {
       {Array.from({ length: 5 }).map((_, index) => (
         <Tile
           key={index}
-          letter={word[index].toUpperCase() || ""}
+          letter={word[index]?.toUpperCase() || ""}
           status={(feedback[index] as Status) || "empty"}
         />
       ))}
