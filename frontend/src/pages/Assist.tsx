@@ -4,7 +4,7 @@ import { FaShuffle } from "react-icons/fa6";
 import { IoSparkles } from "react-icons/io5";
 import { GameBoard } from "../components/GameBoard";
 import type { Guess } from "../components/GameBoard";
-import { getGameState, resetGame, aiGuess } from "../game";
+import { getGameState, resetGame, aiGuess } from "../api/game";
 
 export function Assist() {
   const navigate = useNavigate();
