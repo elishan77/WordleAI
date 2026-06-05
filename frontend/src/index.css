@@ -166,5 +166,35 @@ body {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  margin-bottom: 100px;
+  margin-bottom: 10px;
+}
+
+.input-box {
+  align-items: center;
+  justify-content: center;
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  background-color: #ffffff00;
+
+  width: 200px;
+
+  border: 2px solid #787c7f;
+  border-radius: 8px;
+}
+
+.input-description {
+  font-size: 18px;
+  font-weight: 500;
+  font-family: 'Libre Franklin', sans-serif;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.game-end-message {
+  font-size: 14px;
+  font-weight: 400;
+  font-family: 'Libre Franklin', sans-serif;
+  font-style: italic;
 }
