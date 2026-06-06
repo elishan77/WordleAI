@@ -16,12 +16,17 @@ export function Assist() {
   const [loading, setLoading] = useState(false);
   const [inputGuess, setInputGuess] = useState("");
   const alphabetMap = buildAlphabetMap(guesses);
+  const [answer, setAnswer] = useState("");
 
   useEffect(() => {
     getGameState().then((data) => {
       setGuesses(data.guesses);
       setGameOver(data.game_over);
       setWon(data.won);
+
+      if (data.answer) {
+        setAnswer(data.answer);
+      }
     });
   }, []);
 
@@ -38,6 +43,10 @@ export function Assist() {
     const data = await aiGuess();
     setGuesses((prev) => [...prev, { guess: data.guess, feedback: data.feedback }]);
     setGameOver(data.game_over);
+    setWon(data.won);
+    if (data.answer) {
+      setAnswer(data.answer);
+    }
     setLoading(false);
   }
 
@@ -48,6 +57,10 @@ export function Assist() {
       const data = await submitGuess(inputGuess);
       setGuesses((prev) => [...prev, { guess: data.guess, feedback: data.feedback }]);
       setGameOver(data.game_over);
+      setWon(data.won);
+      if (data.answer) {
+        setAnswer(data.answer);
+      }
 
       console.log(data);
 
@@ -92,7 +105,7 @@ export function Assist() {
 
       {gameOver && (
         <p className="game-end-message">
-          {won ? `You solved the puzzle in ${guesses.length} guesses.` : `Correct answer:`}
+          {won ? `You solved the puzzle in ${guesses.length} guesses.` : `Correct answer: ${answer.toUpperCase()}`}
         </p>
       )}
 

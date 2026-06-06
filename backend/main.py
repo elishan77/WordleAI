@@ -51,7 +51,8 @@ def get_game_state():
         "guesses": game.guesses,
         "remaining_guesses": game.remaining_guesses(),
         "game_over": game.game_over,
-        "won": game.won
+        "won": game.won,
+        "answer": game.answer if game.game_over else None
     }
 
 @app.post("/reset", tags=["Game"])
