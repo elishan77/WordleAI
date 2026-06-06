@@ -1,23 +1,27 @@
-import { KeyboardRow } from "./KeyboardRow";
+import { KeyboardRow, } from "./KeyboardRow";
+import type { Status } from "./Tile";
 
 type KeyboardProp = {
-  alphabetMap: Object;
+  alphabetMap: Record<string, Status>;
 }
 
 
 export function Keyboard({ alphabetMap }: KeyboardProp) {
-  const keyboardOrder = [
+  const keyboardRows = [
     ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
     ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
     ['Z', 'X', 'C', 'V', 'B', 'N', 'M']
   ];
 
   return (
-    /* 
-    for each row in keyboardOrder:
-      assign the status to every letter in the row from alphabetMap
-      create a KeyboardRow and pass the word
-    */ 
-    0
+    <div className="keyboard">
+      {keyboardRows.map((row, idx) => (
+        <KeyboardRow
+          key={idx}
+          letters={row}
+          alphabetMap={alphabetMap}
+        />
+      ))}
+    </div>
   );
 }

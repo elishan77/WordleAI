@@ -1,6 +1,8 @@
+export type Status = "green" | "yellow" | "gray" | "neutral";
+
 type TileProps = {
   letter?: string;
-  status?: "green" | "yellow" | "gray" | "empty";
+  status?: Status;
 };
 
 export function Tile({ letter, status }: TileProps) {

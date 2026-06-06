@@ -1,6 +1,8 @@
+import type { Status } from "./Tile";
+
 type KeyProps = {
   letter?: string;
-  status?: "green" | "yellow" | "gray" | "neutral";
+  status?: Status;
 };
 
 export function Key({ letter, status }: KeyProps) {

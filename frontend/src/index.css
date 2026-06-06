@@ -85,13 +85,13 @@ body {
   background-color: #f5f5f5;
 }
 
-.tile_empty {
+.tile_neutral {
   background-color: #ffffff00;
   color: rgba(255, 255, 255, 0);
   border: 2px solid #828384;
 
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
 
   font-family: 'Libre Franklin', sans-serif;
   font-size: 32px;
@@ -109,8 +109,8 @@ body {
   color: rgb(255, 255, 255);
   border: 2px solid #6ca965;
 
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
 
   font-family: 'Libre Franklin', sans-serif;
   font-size: 32px;
@@ -128,8 +128,8 @@ body {
   color: rgb(255, 255, 255);
   border: 2px solid #c8b653;
 
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
 
   font-family: 'Libre Franklin', sans-serif;
   font-size: 32px;
@@ -147,8 +147,8 @@ body {
   color: rgb(255, 255, 255);
   border: 2px solid #787c7f;
 
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
 
   font-family: 'Libre Franklin', sans-serif;
   font-size: 32px;
@@ -173,23 +173,23 @@ body {
   align-items: center;
   justify-content: center;
   font-family: 'Libre Franklin', sans-serif;
-  font-size: 36px;
+  font-size: 28px;
   font-weight: 600;
-  margin-bottom: 30px;
   background-color: #ffffff00;
+  margin-top: 0px;
+  margin-bottom: 14px;
 
-  width: 200px;
+  width: 140px;
 
   border: 2px solid #787c7f;
   border-radius: 8px;
 }
 
 .input-description {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   font-family: 'Libre Franklin', sans-serif;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 6px;
 }
 
 .game-end-message {
@@ -197,4 +197,97 @@ body {
   font-weight: 400;
   font-family: 'Libre Franklin', sans-serif;
   font-style: italic;
+}
+
+.key_neutral {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #959a9d;
+  color: rgb(255, 255, 255);
+  border: 2px solid #959a9d;
+  border-radius: 6px;
+
+  width: 14px;
+  height: 24px;
+
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+
+  padding: 8px 8px
+}
+
+.key_green {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #6ca965;
+  color: rgb(255, 255, 255);
+  border: 2px solid #6ca965;
+  border-radius: 6px;
+
+  width: 14px;
+  height: 24px;
+
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+
+  padding: 8px 8px
+}
+
+.key_yellow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #c8b653;
+  color: rgb(255, 255, 255);
+  border: 2px solid #c8b653;
+  border-radius: 6px;
+
+  width: 14px;
+  height: 24px;
+
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+
+  padding: 8px 8px
+}
+
+.key_gray {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #6c6e71;
+  color: rgb(255, 255, 255);
+  border: 2px solid #6c6e71;
+  border-radius: 6px;
+
+  width: 14px;
+  height: 24px;
+
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+
+  padding: 8px 8px
+}
+
+.keyboard-row {
+  display: flex;
+  gap: 3px;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  margin-bottom: 16px;
 }

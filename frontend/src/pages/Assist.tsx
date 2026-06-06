@@ -1,26 +1,27 @@
 import { useEffect, useState } from "react";
-import { data, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FaShuffle } from "react-icons/fa6";
 import { IoSparkles } from "react-icons/io5";
 import { GameBoard } from "../components/GameBoard";
 import type { Guess } from "../components/GameBoard";
 import { getGameState, resetGame, aiGuess, submitGuess } from "../api/game";
+import { buildAlphabetMap } from "../utils/alphabetMap";
+import { Keyboard } from "../components/Keyboard";
 
 export function Assist() {
   const navigate = useNavigate();
   const [guesses, setGuesses] = useState<Guess[]>([]);
   const [gameOver, setGameOver] = useState(false);
   const [won, setWon] = useState(false);
-  const [answer, setAnswer] = useState("");
   const [loading, setLoading] = useState(false);
   const [inputGuess, setInputGuess] = useState("");
+  const alphabetMap = buildAlphabetMap(guesses);
 
   useEffect(() => {
     getGameState().then((data) => {
       setGuesses(data.guesses);
       setGameOver(data.game_over);
       setWon(data.won);
-      setAnswer(data.answer);
     });
   }, []);
 
@@ -63,12 +64,6 @@ export function Assist() {
 
       <GameBoard guesses={guesses} />
 
-      {gameOver && (
-        <p className="game-end-message">
-          {won ? `You solved the puzzle in ${guesses.length} guesses.` : `Correct answer: ${answer}`}
-        </p>
-      )}
-
       <p className="input-description">Enter your guess below:</p>
 
       <input
@@ -82,6 +77,8 @@ export function Assist() {
         }}
       />
 
+      <Keyboard alphabetMap={alphabetMap} />
+
       <div style={{ display: "flex", flexDirection: "row", gap: "16px" }}>
         <button className="game-button" onClick={handleReset}>
           <FaShuffle size={20} />
@@ -92,6 +89,13 @@ export function Assist() {
           {loading ? "THINKING..." : "NEXT GUESS"}
         </button>
       </div>
+
+      {gameOver && (
+        <p className="game-end-message">
+          {won ? `You solved the puzzle in ${guesses.length} guesses.` : `Correct answer:`}
+        </p>
+      )}
+
     </div>
   );
 }

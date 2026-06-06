@@ -1,5 +1,5 @@
 import { Word } from "../components/Word";
-import type { Status } from "../components/Word";
+import type { Status } from "../components/Tile";
 
 export type Guess = {
   guess: string;

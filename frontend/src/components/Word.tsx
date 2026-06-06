@@ -1,6 +1,5 @@
 import { Tile } from "./Tile";
-
-export type Status = "green" | "yellow" | "gray" | "empty";
+import type { Status } from "./Tile";
 
 type WordRowProps = {
   word: string;
@@ -14,7 +13,7 @@ export function Word({ word, feedback }: WordRowProps) {
         <Tile
           key={index}
           letter={word[index]?.toUpperCase() || ""}
-          status={(feedback[index] as Status) || "empty"}
+          status={(feedback[index] as Status) || "neutral"}
         />
       ))}
     </div>

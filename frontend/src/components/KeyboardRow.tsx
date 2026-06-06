@@ -1,20 +1,19 @@
 import { Key } from "./Key";
+import type { Status } from "./Tile";
 
-export type Status = "green" | "yellow" | "gray" | "neutral";
+type KeyboardRowProps = {
+  letters: string[];
+  alphabetMap: Record<string, Status>;
+};
 
-type KeyboardRowProp = {
-  word: string;
-  feedback: (Status | undefined)[];
-}
-
-export function KeyboardRow({ word, feedback }: KeyboardRowProp) {
+export function KeyboardRow({ letters, alphabetMap }: KeyboardRowProps) {
   return (
     <div className="keyboard-row">
-      {Array.from({ length: 5 }).map((_, index) => (
+      {letters.map((letter) => (
         <Key
-          key={index}
-          letter={word[index].toUpperCase() || ""}
-          status={(feedback[index] as Status) || "empty"}
+          key={letter}
+          letter={letter}
+          status={alphabetMap[letter]}
         />
       ))}
     </div>
