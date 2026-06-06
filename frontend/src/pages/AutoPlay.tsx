@@ -5,12 +5,15 @@ import { IoSparkles } from "react-icons/io5";
 import { GameBoard } from "../components/GameBoard";
 import type { Guess } from "../components/GameBoard";
 import { aiPlay, resetGame } from "../api/game";
+import { buildAlphabetMap } from "../utils/alphabetMap";
+import { Keyboard } from "../components/Keyboard";
 
 export function AutoPlay() {
   const navigate = useNavigate();
   const [guesses, setGuesses] = useState<Guess[]>([]);
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
+  const alphabetMap = buildAlphabetMap(guesses);
   
   async function handlePlay() {
     setLoading(true);
@@ -35,7 +38,7 @@ export function AutoPlay() {
 
       <GameBoard guesses={guesses} />
 
-      {done && <p>Solved in {guesses.length} guesses!</p>}
+      <Keyboard alphabetMap={alphabetMap} />
 
       <div style={{ display: "flex", flexDirection: "row", gap: "16px" }}>
         <button className="game-button" onClick={handleReset}>
@@ -47,6 +50,8 @@ export function AutoPlay() {
           {loading ? "SOLVING..." : "AUTO PLAY"}
         </button>
       </div>
+
+      {done && <p>Solved in {guesses.length} guesses!</p>}
     </div>
   );
 }
