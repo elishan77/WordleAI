@@ -40,7 +40,8 @@ def submit_guess(guess_request: GuessRequest):
             "feedback": feedback,
             "remaining_guesses": game.remaining_guesses(),
             "game_over": game.game_over,
-            "won": game.won
+            "won": game.won,
+            "answer": game.answer if game.game_over else None
         }
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
@@ -78,7 +79,8 @@ def ai_guess():
         "feedback": feedback,
         "remaining_guesses": game.remaining_guesses(),
         "game_over": game.game_over,
-        "won": game.won
+        "won": game.won,
+        "answer": game.answer if game.game_over else None
     }
 
 @app.post("/ai/play", tags=["AI"])
