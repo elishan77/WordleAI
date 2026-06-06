@@ -16,6 +16,7 @@ class Solver:
             for word in self.remaining_candidates
             if generate_feedback(guess, word) == feedback
         }
+        print(f"Filtered candidates: {len(self.remaining_candidates)} remaining")
 
     def pick_best_guess(self) -> str:
         if not self.remaining_candidates:
